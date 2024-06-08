@@ -18,6 +18,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { CKEditorModule } from 'ckeditor4-angular';
 // #fake-end#
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserComponent } from './user/user.component';
+import { CarreraComponent } from './carrera/carrera.component';
+import { MateriaComponent } from './materia/materia.component';
+import { ModuloAulaComponent } from './modulo-aula/modulo-aula.component';
+import { GrupoComponent } from './grupo/grupo.component';
+import { FacultadComponent } from './facultad/facultad.component';
+import { ProgramacionComponent } from './programacion/programacion.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -29,7 +37,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserComponent, CarreraComponent, MateriaComponent, ModuloAulaComponent, GrupoComponent, FacultadComponent, ProgramacionComponent, UsuarioComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
