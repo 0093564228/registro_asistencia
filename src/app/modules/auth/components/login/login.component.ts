@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit, OnDestroy {
   // KeenThemes mock, change it to:
   defaultAuth: any = {
-    email: 'echodev@gmail.com',
+    email: 'user1@gmail.com',
     password: '12345678',
   };
   loginForm: FormGroup;
