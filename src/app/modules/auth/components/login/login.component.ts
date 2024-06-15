@@ -78,6 +78,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       .login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe((user: any) => {
+        document.location.reload();
+        return
         if (user) {
           // this.router.navigate([this.returnUrl]);
           document.location.reload();

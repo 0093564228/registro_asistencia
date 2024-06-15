@@ -1,0 +1,31 @@
+
+<h1 class="m-6">Facultades</h1> 
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<button type="button"             
+    class="btn btn-primary btn-sm p-2 m-4"
+    routerLink="nuevo">Nueva Facultad
+</button>
+</div>
+<div class="card card-flush h-md-100 m-4 p-5"> 
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Modulo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let facultad of facultades">
+        <td>{{facultad.nombre}}</td>
+        <td>{{facultad.modulo}}</td>
+        <td><button type="button"             
+            class="btn btn-warning btn-sm p-2"
+            routerLink="editar"(click)="editar(facultad.id)">Editar Facultad</button>
+            <button type="button" class="btn btn-danger btn-sm p-2"(click)="eliminar(facultad.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+</div>

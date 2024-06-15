@@ -39,6 +39,31 @@ import { ExtendedComponent } from './components/toolbar/extended/extended.compon
 import { ReportsComponent } from './components/toolbar/reports/reports.component';
 import { SaasComponent } from './components/toolbar/saas/saas.component';
 import {SharedModule} from "../shared/shared.module";
+import { CarreraListComponent } from 'src/app/carrera/carrera-list/carrera-list.component';
+import { CarreraNuevoComponent } from 'src/app/carrera/carrera-nuevo/carrera-nuevo.component';
+import { FacultadListComponent } from 'src/app/facultad/facultad-list/facultad-list.component';
+import { MateriaListComponent } from 'src/app/materia/materia-list/materia-list.component';
+import { AsistenciaListComponent } from 'src/app/asistencia/asistencia-list/asistencia-list.component';
+import { GrupoListComponent } from 'src/app/grupo/grupo-list/grupo-list.component';
+import { LicenciaListComponent } from 'src/app/licencia/licencia-list/licencia-list.component';
+import { ProgramacionListComponent } from 'src/app/programacion/programacion-list/programacion-list.component';
+import { UsuarioListComponent } from 'src/app/usuario/usuario-list/usuario-list.component';
+import { AulaListComponent } from 'src/app/aula/aula-list/aula-list.component';
+import { FacultadNuevoComponent } from 'src/app/facultad/facultad-nuevo/facultad-nuevo.component';
+import { FacultadEditComponent } from 'src/app/facultad/facultad-edit/facultad-edit.component';
+import { UsuarioNuevoComponent } from 'src/app/usuario/usuario-nuevo/usuario-nuevo.component';
+import { MateriaNuevoComponent } from 'src/app/materia/materia-nuevo/materia-nuevo.component';
+import { MateriaEditComponent } from 'src/app/materia/materia-edit/materia-edit.component';
+import { UsuarioEditComponent } from 'src/app/usuario/usuario-edit/usuario-edit.component';
+import { AulaNuevoComponent } from 'src/app/aula/aula-nuevo/aula-nuevo.component';
+import { AulaEditComponent } from 'src/app/aula/aula-edit/aula-edit.component';
+import { CarreraEditComponent } from 'src/app/carrera/carrera-edit/carrera-edit.component';
+import { AsistenciaNuevoComponent } from 'src/app/asistencia/asistencia-nuevo/asistencia-nuevo.component';
+import { GrupoNuevoComponent } from 'src/app/grupo/grupo-nuevo/grupo-nuevo.component';
+import { LicenciaNuevoComponent } from 'src/app/licencia/licencia-nuevo/licencia-nuevo.component';
+import { ProgramacionNuevoComponent } from 'src/app/programacion/programacion-nuevo/programacion-nuevo.component';
+import { ProgramacionEditComponent } from 'src/app/programacion/programacion-edit/programacion-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -70,6 +95,32 @@ const routes: Routes = [
     ExtendedComponent,
     ReportsComponent,
     SaasComponent,
+    CarreraListComponent,
+    CarreraNuevoComponent,
+    CarreraListComponent,
+    CarreraNuevoComponent,
+    FacultadListComponent,
+    MateriaListComponent,
+    AsistenciaListComponent,
+    GrupoListComponent,
+    LicenciaListComponent,
+    ProgramacionListComponent,
+    UsuarioListComponent,
+    AulaListComponent,
+    FacultadNuevoComponent,
+    FacultadEditComponent,
+    UsuarioNuevoComponent,
+    MateriaNuevoComponent,
+    MateriaEditComponent,
+    UsuarioEditComponent,
+    AulaNuevoComponent,
+    AulaEditComponent,
+    CarreraEditComponent,
+    AsistenciaNuevoComponent,
+    GrupoNuevoComponent,
+    LicenciaNuevoComponent,
+    ProgramacionNuevoComponent,
+    ProgramacionEditComponent,
   ],
   imports: [
     CommonModule,
@@ -86,7 +137,8 @@ const routes: Routes = [
     NgbTooltipModule,
     TranslateModule,
     ThemeModeModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
   ],
   exports: [RouterModule],
 })

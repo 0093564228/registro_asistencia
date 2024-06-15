@@ -1,0 +1,30 @@
+<h1 class="m-6">Carreras</h1> 
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<button type="button"             
+    class="btn btn-primary btn-sm p-2 m-4"
+    routerLink="nuevo">Nueva Carrera
+</button>
+</div>
+<div class="card card-flush h-md-100 m-4 p-5">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Facultad</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let carrera of carreras">
+        <td>{{carrera.nombre}}</td>
+        <td>{{carrera.facultadDTO.nombre}}</td>
+        <td><button type="button"             
+          class="btn btn-warning btn-sm p-2"
+          routerLink="editar" (click)="editar(carrera.id)" >Editar Carrera</button>
+          <button type="button" class="btn btn-danger btn-sm p-2"(click)="eliminar(carrera.id)">Eliminar</button>
+      </td>
+      </tr>
+    </tbody>
+</table>
+
+</div>

@@ -1,0 +1,34 @@
+<h1 class="m-6">Lista de Asistencia</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button"             
+        class="btn btn-success btn-sm p-2 m-4"
+        [routerLink]="['/asistencias/nuevo']">
+             Registrar Asistencia
+    </button>
+    </div>
+<div class="card card-flush h-md-100 m-4 p-5">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Grupo</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let asistencia of asistencias">
+            <td>{{asistencia.programacionDTO.userDTO.firstname}}</td>
+            <td>{{asistencia.programacionDTO.userDTO.lastname}}</td>
+            <td>{{asistencia.programacionDTO.materiaDTO.nombre}}</td>
+            <td>{{asistencia.programacionDTO.grupoDTO.nombre}}</td>
+            <td>{{asistencia.programacionDTO.aulaDTO.nombre}}</td>
+            <td>{{asistencia.estado}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,0 +1,80 @@
+<form>
+    <div class="card card-flush h-md-100 m-4 p-5">
+        <h1>Registrar Nueva Programacion</h1>
+        <div class="container p-8 m-4">
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-select">
+                        <option selected>Nombre...</option>
+                        <option *ngFor="let usuario of usuarios" [value]="usuario.id"> {{usuario.firstname}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Apellido</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-select">
+                        <option selected>Apellido...</option>
+                        <option *ngFor="let usuario of usuarios" [value]="usuario.id"> {{usuario.lastname}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Materia</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-select">
+                        <option selected>Materia...</option>
+                        <option *ngFor="let materia of materias" [value]="materia.id"> {{materia.nombre}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Grupo</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-select">
+                        <option selected>Grupo...</option>
+                        <option *ngFor="let grupo of grupos" [value]="grupo.id"> {{grupo.nombre}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Aula</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-select">
+                        <option selected>Aula...</option>
+                        <option *ngFor="let aula of aulas" [value]="aula.id"> {{aula.nombre}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Dia</label>
+                <div class="col-sm-10">
+                    <select id="inputState" class="form-select">
+                        <option selected>Dia...</option>
+                        <option value="LUNES"> LUNES </option>
+                        <option value="MARTES"> MARTES </option>
+                        <option value="MIERCOLES"> MIERCOLES </option>
+                        <option value="JUEVES"> JUEVES </option>
+                        <option value="VIERNES"> VIERNES </option>
+                        <option value="SABADO"> SABADO </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Horario Inicio</label>
+                <div class="col-sm-10">
+                  <input type="time" class="form-control" id="datetimeIninio" name="datetimeInput">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputState" class="col-sm-2 col-form-label">Horario Fin</label>
+                <div class="col-sm-10">
+                  <input type="time" class="form-control" id="datetimeInput"  name="datetimeInput">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>   
+  </form>
+
