@@ -7,7 +7,7 @@ export class AuthGuard {
   constructor(private authService: AuthService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.authService.user || !this.authService.token) {
+    if (!this.authService.token) {
       this.authService.logout();
       return false;
     }

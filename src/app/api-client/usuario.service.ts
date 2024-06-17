@@ -32,4 +32,8 @@ export class UsuarioService {
   delete(id: number): Observable<UsuarioType> {
     return this.http.delete<UsuarioType>(`${this.basePath}/${id}`);
   }
+
+  getAllUsuariosConProgramacion(): Observable<UsuarioType[]> {
+    return this.http.get<UsuarioType[]>(`${this.basePath}/porProgramacion`);
+  }
 }

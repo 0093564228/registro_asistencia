@@ -31,10 +31,11 @@ export class AsistenciaNuevoComponent {
     this.getprogramacion();
 
     this.formGroup = this.formBuilder.group({
-      userDTO: [null, Validators.required],
-      materiaDTO: [null, Validators.required],
-      grupoDTO: [null, Validators.required],
-      aulaDTO: [null, Validators.required],
+      horario_inicio: ['', Validators.required],
+      horario_fin: ['', Validators.required],
+      estado: ['', Validators.required],
+      userTDO: [null, Validators.required],
+      programacionDTO: [null, Validators.required],
     });
   }
   getprogramacion(){
@@ -49,12 +50,12 @@ export class AsistenciaNuevoComponent {
   guardar(){
     this.asistenciaService.create(this.formGroup.value).subscribe({
       next:(res)=>{
-        this.router.navigate(['/carreras']);
+        this.router.navigate(['/asistencias']);
       }
     })
   }
 
   volver(){
-    this.router.navigate(['/carreras']);
+    this.router.navigate(['/asistencias']);
   }
 }

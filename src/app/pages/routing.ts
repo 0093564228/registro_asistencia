@@ -20,6 +20,8 @@ import { AulaEditComponent } from '../aula/aula-edit/aula-edit.component';
 import { ProgramacionListComponent } from '../programacion/programacion-list/programacion-list.component';
 import { ProgramacionEditComponent } from '../programacion/programacion-edit/programacion-edit.component';
 import { ProgramacionNuevoComponent } from '../programacion/programacion-nuevo/programacion-nuevo.component';
+import { LicenciaListComponent } from '../licencia/licencia-list/licencia-list.component';
+import { LicenciaNuevoComponent } from '../licencia/licencia-nuevo/licencia-nuevo.component';
 
 const Routing: Routes = [
   {
@@ -66,6 +68,14 @@ const Routing: Routes = [
   {
     path: 'apps/permissions',
     loadChildren: () => import('./permission/permission.module').then((m) => m.PermissionModule),
+  },
+  {
+    path: 'licencias',
+    component: LicenciaListComponent,
+  },
+  {
+    path: 'licencias/nuevo',
+    component: LicenciaNuevoComponent,
   },
   {
     path: 'usuarios',

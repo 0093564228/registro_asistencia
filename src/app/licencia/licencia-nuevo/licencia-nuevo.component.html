@@ -1,1 +1,40 @@
-<p>licencia-nuevo works!</p>
+<form>
+    <h1 class="m-6">Registrar Nueva Licencia</h1>
+    <div class="card card-flush h-md-100 m-4 p-5">
+        <form [formGroup]="formGroup" (ngSubmit)="guardar()">
+            <div class="container p-8 m-4">
+                <div class="row mb-3">
+                    <label for="inputState" class="col-sm-2 col-form-label">Usuario</label>
+                    <div class="col-sm-10">
+                      <select id="inputState" class="form-select" formControlName="userDTO">
+                        <option *ngFor="let usuario of usuarios" [ngValue]="usuario">
+                          {{ usuario.firstname }} {{ usuario.lastname }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Motivo:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="motivolicencia" formControlName="motivo">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="row mb-3">
+                        <label for="inputState" class="col-sm-2 col-form-label">Horario Inicio</label>
+                        <div class="col-sm-10">
+                          <input type="datetime-local" class="form-control" id="datetimeIniniolic"  formControlName="horario_inicio">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputState" class="col-sm-2 col-form-label">Horario Fin</label>
+                        <div class="col-sm-10">
+                          <input type="datetime-local" class="form-control" id="datetimeInputlic" formControlName="horario_fin">
+                        </div>
+                    </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+        </form>
+    </div>   
+  </form>

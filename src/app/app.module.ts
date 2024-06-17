@@ -58,7 +58,7 @@ authService.getUserByToken().subscribe().add(resolve);
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    UserComponent
   ],
   imports: [
     FormsModule,
