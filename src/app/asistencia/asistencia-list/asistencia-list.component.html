@@ -5,9 +5,15 @@
         [routerLink]="['/asistencias/nuevo']">
              Registrar Asistencia
     </button>
+
+    <button (click)= "exportexcel()" type="button" class="btn btn-success btn-sm p-2 m-4">
+        Descargar en Excel
+    </button>
+
     </div>
+
 <div class="card card-flush h-md-100 m-4 p-5">
-    <table class="table table-striped">
+    <table class="table table-striped" id ="table-data">
         <thead>
         <tr>
             <th scope="col">Nombre</th>

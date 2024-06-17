@@ -136,7 +136,7 @@ const Routing: Routes = [
     component: AulaNuevoComponent,
   },
   {
-    path: 'aulas/editar',
+    path: 'aulas/editar/:id',
     component: AulaEditComponent,
   },
   {
@@ -144,7 +144,7 @@ const Routing: Routes = [
     component: ProgramacionListComponent,
   },
   {
-    path: 'programacion/editar',
+    path: 'programacion/editar/:id',
     component: ProgramacionEditComponent,
   },
   {

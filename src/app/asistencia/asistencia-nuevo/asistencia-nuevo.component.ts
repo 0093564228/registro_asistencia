@@ -1,5 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { ProgramacionType, UsuarioType } from 'src/app/api-client/api.types';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AsistenciaType, ProgramacionType, UsuarioType } from 'src/app/api-client/api.types';
+import { AsistenciaService } from 'src/app/api-client/asistencia.service';
 import { ProgramacionService } from 'src/app/api-client/programacion.service';
 import { UsuarioService } from 'src/app/api-client/usuario.service';
 
@@ -9,24 +12,49 @@ import { UsuarioService } from 'src/app/api-client/usuario.service';
   styleUrls: ['./asistencia-nuevo.component.scss']
 })
 export class AsistenciaNuevoComponent {
-  public programaciones: ProgramacionType[];
-  public usuarios: UsuarioType[];
-
+  public asistencias: AsistenciaType[];
+  public programaciones: ProgramacionType[]; 
+  formGroup: FormGroup;
+  
   constructor(
-    readonly ProgramacionService: ProgramacionService,
-    readonly UsuarioService: UsuarioService,
+    readonly programacionService: ProgramacionService,
+    readonly asistenciaService: AsistenciaService,
+
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private activatedroute: ActivatedRoute,
+
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this.getusuario();
+    this.getprogramacion();
+
+    this.formGroup = this.formBuilder.group({
+      userDTO: [null, Validators.required],
+      materiaDTO: [null, Validators.required],
+      grupoDTO: [null, Validators.required],
+      aulaDTO: [null, Validators.required],
+    });
   }
-  getusuario(){
-    this.UsuarioService.getAll().subscribe({
+  getprogramacion(){
+    this.programacionService.getAll().subscribe({
       next:(res)=>{
-        this.usuarios = res
+        this.programaciones = res
         this.cdr.detectChanges();
       }
     })
+  }
+
+  guardar(){
+    this.asistenciaService.create(this.formGroup.value).subscribe({
+      next:(res)=>{
+        this.router.navigate(['/carreras']);
+      }
+    })
+  }
+
+  volver(){
+    this.router.navigate(['/carreras']);
   }
 }

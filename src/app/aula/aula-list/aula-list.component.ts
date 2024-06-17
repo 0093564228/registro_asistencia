@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AulaType } from 'src/app/api-client/api.types';
 import { AulaService } from 'src/app/api-client/aula.service';
 
@@ -12,6 +13,7 @@ export class AulaListComponent {
 
   constructor(
     readonly AulaService: AulaService,
+    private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -34,5 +36,8 @@ export class AulaListComponent {
         this.getaula();
       }
     })
+  }
+  editar(id:number){
+    this.router.navigate(['/aulas/editar', id]);
   }
 }

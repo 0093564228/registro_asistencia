@@ -1,4 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AulaType, GrupoMateriaType, MateriaType, ProgramacionType, UsuarioType } from 'src/app/api-client/api.types';
 import { AulaService } from 'src/app/api-client/aula.service';
 import { GrupoMateriaService } from 'src/app/api-client/grupo.service';
@@ -17,16 +19,23 @@ export class ProgramacionNuevoComponent {
   public grupos: GrupoMateriaType[];
   public aulas: AulaType[];
   public usuarios: UsuarioType[];
-  public horaInicio: string = '';
-  public horafin: string = '';
+  //public horaInicio: string = '';
+  //public horafin: string = '';
+
+  formGroup: FormGroup;
 
   constructor(
-    readonly ProgramacionService: ProgramacionService,
+    readonly programacionService: ProgramacionService,
     
     readonly MateriaService: MateriaService,
     readonly GrupoMateriaService: GrupoMateriaService,
     readonly AulaService: AulaService,
     readonly UsuarioService: UsuarioService,
+
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private activatedroute: ActivatedRoute,
+
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -35,6 +44,26 @@ export class ProgramacionNuevoComponent {
     this.getgrupo();
     this.getaula();
     this.getusuario();
+    this.getprogramacion();
+
+    this.formGroup = this.formBuilder.group({
+      userDTO: [null, Validators.required],
+      materiaDTO: [null, Validators.required],
+      grupoDTO: [null, Validators.required],
+      aulaDTO: [null, Validators.required],
+      dia: ['', Validators.required],
+      horario_inicio: ['', Validators.required],
+      horario_fin: ['', Validators.required]
+    });
+
+  }
+  getprogramacion(){
+    this.programacionService.getAll().subscribe({
+      next:(res)=>{
+        this.programaciones = res
+        this.cdr.detectChanges();
+      }
+    })
   }
   getmateria(){
     this.MateriaService.getAll().subscribe({
@@ -67,5 +96,26 @@ export class ProgramacionNuevoComponent {
         this.cdr.detectChanges();
       }
     })
+  }
+
+  guardar() {
+    if (this.formGroup.valid) {
+      const formData = this.formGroup.value;
+      console.log('Datos del formulario:', JSON.stringify(formData, null, 2));
+  
+      this.programacionService.create(formData).subscribe({
+        next: (res) => {
+          console.log('Respuesta del servidor:', res);
+          this.router.navigate(['/programacion']);
+        },
+        error: (err) => {
+          console.error('Error al crear la programacion', err);
+        }
+      });
+    }
+  }
+
+  volver(){
+    this.router.navigate(['/programacion']);
   }
 }

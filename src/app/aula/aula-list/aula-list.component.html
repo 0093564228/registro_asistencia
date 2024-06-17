@@ -18,7 +18,7 @@
         <td>{{aula.nombre}}</td>
         <td><button type="button"             
           class="btn btn-warning btn-sm p-2"
-          routerLink="editar">Editar Aula</button>
+          routerLink="editar" (click)="editar(aula.id)">Editar Aula</button>
           <button type="button" class="btn btn-danger btn-sm p-2"(click)="eliminar(aula.id)">Eliminar</button>
       </td>
       </tr>

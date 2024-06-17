@@ -1,3 +1,5 @@
+import { Time } from "@angular/common";
+import { Data } from "@angular/router";
 
 export type CarreraType = {
     readonly id: number;

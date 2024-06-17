@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { AsistenciaType } from 'src/app/api-client/api.types';
 import { AsistenciaService } from 'src/app/api-client/asistencia.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-asistencia-list',
@@ -28,4 +29,18 @@ export class AsistenciaListComponent {
       }
     })
   }
+  
+  fileName = "Excel_Asistencia.xlsx";
+
+  exportexcel(){
+    let data = document.getElementById("table-data");
+    const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
+
+    XLSX.writeFile(wb, this.fileName)
+
+  }
+
 }

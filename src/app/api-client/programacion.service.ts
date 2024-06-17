@@ -21,8 +21,8 @@ export class ProgramacionService {
     return this.http.get<ProgramacionType>(`${this.basePath}/${id}`);
   }
   
-  create(programacion: ProgramacionType): Observable<ProgramacionType[]> {
-    return this.http.post<ProgramacionType[]>(`${this.basePath}/create`, programacion);
+  create(programacion: ProgramacionType): Observable<ProgramacionType> {
+    return this.http.post<ProgramacionType>(`${this.basePath}/create`, programacion);
   }
 
   update(programacion: ProgramacionType): Observable<ProgramacionType> {
