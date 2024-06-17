@@ -38,6 +38,7 @@
     "clipboard": "2.0.11",
     "datatables.net": "^1.11.3",
     "datatables.net-bs5": "^1.11.3",
+    "force": "^0.0.3",
     "jquery": "^3.6.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",

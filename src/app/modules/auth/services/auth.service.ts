@@ -49,10 +49,10 @@ export class AuthService implements OnDestroy {
   }
 
   // public methods
-  login(email: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<any> {
     this.isLoadingSubject.next(true);
     return this.http
-      .post(URL_SERVICIOS + '/auth/login', { email, password })
+      .post(URL_SERVICIOS + '/auth/login', { username, password })
       .pipe(
         map((auth: any) => {
           const result = this.setAuthFromLocalStorage(auth);
@@ -63,7 +63,8 @@ export class AuthService implements OnDestroy {
           return of(undefined);
         }),
         finalize(() => this.isLoadingSubject.next(false))
-      );
+    );
+
   }
 
   logout() {
@@ -120,9 +121,10 @@ export class AuthService implements OnDestroy {
   // private methods
   private setAuthFromLocalStorage(auth: any): boolean {
     // store auth authToken/refreshToken/epiresIn in local storage to keep user logged in between page refreshes
-    if (auth && auth.access_token) {
-      localStorage.setItem('user', JSON.stringify(auth.user));
-      localStorage.setItem('token', auth.access_token);
+    if (auth && auth.token) {
+      localStorage.setItem('user', JSON.stringify(auth.username));
+      /* localStorage.setItem('user', auth.username); */
+      localStorage.setItem('token', auth.token);
       return true;
     }
     return false;
@@ -147,4 +149,6 @@ export class AuthService implements OnDestroy {
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
+
+
 }
