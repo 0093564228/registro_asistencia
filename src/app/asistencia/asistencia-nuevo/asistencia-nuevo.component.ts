@@ -14,11 +14,13 @@ import { UsuarioService } from 'src/app/api-client/usuario.service';
 export class AsistenciaNuevoComponent {
   public asistencias: AsistenciaType[];
   public programaciones: ProgramacionType[]; 
+  public usuarios: UsuarioType[]; 
   formGroup: FormGroup;
   
   constructor(
     readonly programacionService: ProgramacionService,
     readonly asistenciaService: AsistenciaService,
+    readonly usuarioSrvice: UsuarioService,
 
     private formBuilder: FormBuilder,
     private router: Router,
@@ -29,15 +31,25 @@ export class AsistenciaNuevoComponent {
 
   ngOnInit(): void {
     this.getprogramacion();
+    this.getUsuarios();
 
     this.formGroup = this.formBuilder.group({
       horario_inicio: ['', Validators.required],
       horario_fin: ['', Validators.required],
       estado: ['', Validators.required],
-      userTDO: [null, Validators.required],
+      userDTO: [null, Validators.required],
       programacionDTO: [null, Validators.required],
     });
   }
+  getUsuarios(){
+    this.usuarioSrvice.getAllUsuariosConProgramacion().subscribe({
+      next:(res)=>{
+        this.usuarios = res
+        this.cdr.detectChanges();
+      }
+    })
+  }
+
   getprogramacion(){
     this.programacionService.getAll().subscribe({
       next:(res)=>{

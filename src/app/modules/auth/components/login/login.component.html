@@ -3,13 +3,13 @@
   (ngSubmit)="submit()">
   <!--begin::Heading-->
   <div class="text-center mb-11">
-    <h1 class="text-gray-900 fw-bolder mb-3">
-      Inicio de Sesion
+    <h1 class="text-gray-900 fw-bolder mb-2">
+      Inicio de Sesión
     </h1>
-    <!--begin::Subtitle-->
+    <!--begin::Subtitle
     <div class="text-gray-500 fw-semibold fs-6">
       Sistema Academico
-    </div>
+    </div>-->
     <!--end::Subtitle--->
     <!-- <div class="text-gray-500 fw-bold fs-4">
       New Here?
@@ -97,11 +97,10 @@
   <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
     <div></div>
 
-    <!--begin::Link-->
+    <!--begin::Link
     <a routerLink="/auth/forgot-password" class="link-primary">
       Olvidaste tu Contraseña ?
-    </a>
-    <!--end::Link-->
+    </a>-->
   </div>
   <!--end::Wrapper-->
 
@@ -115,18 +114,18 @@
         </span>
       </ng-container>
       <ng-container *ngIf="(isLoading$ | async) === false">
-        <span class="indicator-label">Continue</span>
+        <span class="indicator-label">Continuar</span>
       </ng-container>
     </button>
   </div>
 
-  <div class="text-gray-500 text-center fw-semibold fs-6">
+  <!--<div class="text-gray-500 text-center fw-semibold fs-6">
     Recuerdame?
 
     <a routerLink="/auth/registration" class="link-primary">
       Ingresar
     </a>
-  </div>
+  </div>-->
 
   <!--end::Action-->
 </form>

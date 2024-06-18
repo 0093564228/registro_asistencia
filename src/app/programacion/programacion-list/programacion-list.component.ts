@@ -61,12 +61,19 @@ export class ProgramacionListComponent {
   fileName = "Excel_Programacion.xlsx";
 
   exportexcel(){
-    let data = document.getElementById("table-data");
-    const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
-
+    let table = document.getElementById("table-data") as HTMLTableElement;
+    let tableCopy = table.cloneNode(true) as HTMLTableElement;
+  
+    // Eliminar la columna de acciones de la copia de la tabla
+    Array.from(tableCopy.rows).forEach(row => {
+      row.deleteCell(-1); // Elimina la última celda de cada fila
+    });
+  
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(tableCopy);
+  
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
-
+  
     XLSX.writeFile(wb, this.fileName)
 
   }
@@ -78,6 +85,17 @@ export class ProgramacionListComponent {
   }*/
     imprimirlista() {
       const doc = new jsPDF();
+      const title = "Lista de Programación Académica";
+    
+      // Centrar el título
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const textWidth = doc.getTextWidth(title);
+      const textX = (pageWidth - textWidth) / 2;
+  
+      // Agregar el título
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "bold");
+      doc.text(title, textX, 10);
       const columns = ["Nombre", "Apellido", "Materia", "Grupo", "Aula", "Dia", "Horario Inicio", "Horario Final"];
       const rows = this.programaciones.map(programacion => [
         programacion.userDTO.firstname,
@@ -93,14 +111,14 @@ export class ProgramacionListComponent {
       (doc as any).autoTable({
         head: [columns],
         body: rows,
-        startY: 10,
+        startY: 20,
         theme: 'grid',
         styles: {
           fontSize: 10,
           cellPadding: 3,
         },
         headStyles: {
-          fillColor: [22, 160, 133],
+          fillColor: [0, 120, 255], 
           textColor: [255, 255, 255],
           fontStyle: 'bold'
         },

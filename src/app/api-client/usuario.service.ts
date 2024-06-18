@@ -34,6 +34,6 @@ export class UsuarioService {
   }
 
   getAllUsuariosConProgramacion(): Observable<UsuarioType[]> {
-    return this.http.get<UsuarioType[]>(`${this.basePath}/porProgramacion`);
+    return this.http.get<UsuarioType[]>(`${this.basePath}/con-programacion`);
   }
 }

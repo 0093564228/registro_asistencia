@@ -32,6 +32,8 @@ export type UsuarioType = {
     lastname: string,
     firstname:string,
     country:string,
+    ci:string,
+    telefono:string,
     password:string,
     role:string
 }

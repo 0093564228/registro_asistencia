@@ -6,10 +6,10 @@
                 <div class="row mb-3">
                     <label for="inputState" class="col-sm-2 col-form-label">Usuario</label>
                     <div class="col-sm-10">
-                      <select id="inputState" class="form-select" formControlName="programacionDTO">
-                        <!--<option *ngFor="let programacion of progamaciones" [ngValue]="programacionDTO.userTDO.id">
-                          {{ usuario.firstname }} {{ usuario.lastname }}
-                        </option>-->
+                      <select id="inputState" class="form-select" formControlName="userDTO">
+                       <option *ngFor="let userDTO of usuarios" [ngValue]="userDTO">
+                          {{ userDTO.firstname }} {{ userDTO.lastname }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -25,17 +25,17 @@
                     </div>
                 </div>
                   <div class="row mb-3">
-                    <label for="inputState" class="col-sm-2 col-form-label">Horario Inicio</label>
+                    <label for="inputState" class="col-sm-2 col-form-label">Hora</label>
                     <div class="col-sm-10">
                       <input type="datetime-local" class="form-control" id="datetimeIninio"  formControlName="horario_inicio">
                     </div>
                 </div>
-                <div class="row mb-3">
+                <!--<div class="row mb-3">
                     <label for="inputState" class="col-sm-2 col-form-label">Horario Fin</label>
                     <div class="col-sm-10">
                       <input type="datetime-local" class="form-control" id="datetimeInput" formControlName="horario_fin">
                     </div>
-                </div>
+                </div>-->
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>

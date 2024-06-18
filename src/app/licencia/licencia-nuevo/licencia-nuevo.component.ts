@@ -28,7 +28,7 @@ export class LicenciaNuevoComponent {
 
   ngOnInit(): void {
 
-    this.getusuario();
+    this.getUsuarios();
 
     this.formGroup = this.formBuilder.group({
       motivo: ['', Validators.required],
@@ -37,8 +37,8 @@ export class LicenciaNuevoComponent {
       userDTO: [null, Validators.required],
     });
   }
-  getusuario(){
-    this.usuarioService.getAll().subscribe({
+  getUsuarios(){
+    this.usuarioService.getAllUsuariosConProgramacion().subscribe({
       next:(res)=>{
         this.usuarios = res
         this.cdr.detectChanges();

@@ -89,16 +89,32 @@
       <span >Lista de Asistencia</span>
     </a>
   </div>
+
   <div class="menu-item">
-    <a class="menu-link without-sub" (click)="cerrar()">
+    <a class="menu-link without-sub" routerLinkActive="active"
+       routerLink="/licencias">
       <span class="menu-bullet">
         <span
           class="bullet bullet-dot"></span>
       </span>
-      <span >Cerrar Sesión</span>
+      <span >Lista de Licencias</span>
     </a>
   </div>
+
  
+  </div>
+  <div class="menu-item my-20 mx-1">
+    <a class="menu-link without-sub" (click)="cerrar()">
+      <span class="menu-bullet">
+        <span
+          class="bullet"></span>
+      </span>
+      <span>Cerrar Sesión</span>
+      <span class="menu-bullet my-6">
+        <span
+          class="bullet"></span>
+      </span>
+    </a>
   </div>
   <!--end::Menu-->
 </div>

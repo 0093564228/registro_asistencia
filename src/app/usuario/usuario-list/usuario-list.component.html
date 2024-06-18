@@ -11,9 +11,11 @@
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
+        <th scope="col">CI</th>
         <th scope="col">Email</th>
         <th scope="col">Pais</th>
         <th scope="col">Rol</th>
+        <th scope="col">Telefono</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -21,9 +23,11 @@
       <tr  *ngFor="let usuario of usuarios">
         <td>{{usuario.firstname}}</td>
         <td>{{usuario.lastname}}</td>
+        <td>{{usuario.ci}}</td>
         <td>{{usuario.username}}</td>
         <td>{{usuario.country}}</td>
         <td>{{usuario.role}}</td>
+        <td>{{usuario.telefono}}</td>
         <td><button type="button"             
             class="btn btn-warning btn-sm p-2"
             routerLink="editar" (click)="editar(usuario.id)">Editar Usuario</button>

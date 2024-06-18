@@ -1,10 +1,8 @@
 <h1 class="m-6">Lista de Asistencia</h1>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button type="button"             
-        class="btn btn-danger btn-sm p-2 m-4"
-        [routerLink]="['/asistencias/nuevo']">
-            Descargar PDF
-    </button>
+    <button (click)= "imprimirlista()" type="button" class="btn btn-danger btn-sm p-2 m-4">
+        Descargar en PDF
+      </button>
 
     <button (click)= "exportexcel()" type="button" class="btn btn-success btn-sm p-2 m-4">
         Descargar en Excel
@@ -22,6 +20,8 @@
             <th scope="col">Grupo</th>
             <th scope="col">Aula</th>
             <th scope="col">Estado</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Dia</th>
         </tr>
         </thead>
         <tbody>
@@ -32,6 +32,8 @@
             <td>{{asistencia.programacionDTO.grupoDTO.nombre}}</td>
             <td>{{asistencia.programacionDTO.aulaDTO.nombre}}</td>
             <td>{{asistencia.estado}}</td>
+            <td>{{asistencia.horario_inicio | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+            <td>{{asistencia.programacionDTO.dia}}</td>
         </tr>
         </tbody>
     </table>
