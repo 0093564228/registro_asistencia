@@ -7,7 +7,7 @@ import { AsistenciaType } from "./api.types";
   providedIn: "root",
 })
 export class AsistenciaService {
-  private basePath = `http://localhost:8080/api/asistencias`
+  private basePath = `http://18.217.180.20/api/asistencias`
 
   constructor(
     private readonly http: HttpClient,
@@ -20,7 +20,7 @@ export class AsistenciaService {
   getBy(id: number): Observable<AsistenciaType[]> {
     return this.http.get<AsistenciaType[]>(`${this.basePath}/${id}`);
   }
-  
+
   create(asistencia: AsistenciaType): Observable<AsistenciaType[]> {
     return this.http.post<AsistenciaType[]>(`${this.basePath}/create`, asistencia);
   }

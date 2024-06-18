@@ -160,7 +160,7 @@ export const environment = {
     },
   },
   URL_BACKEND: 'http://127.0.0.1:8080/',
-  URL_SERVICIOS: 'http://127.0.0.1:8080/api',
+  URL_SERVICIOS: 'http://18.217.180.20/api',
   URL_FROTEND: 'http://localhost:8080/api',
 };
 

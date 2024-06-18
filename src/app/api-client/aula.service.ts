@@ -4,14 +4,12 @@ import { Observable } from "rxjs"
 import { AulaType } from "./api.types";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AulaService {
-  private basePath = `http://localhost:8080/api/aulas`
+  private basePath = `http://18.217.180.20/api/aulas`;
 
-  constructor(
-    private readonly http: HttpClient,
-  ) {}
+  constructor(private readonly http: HttpClient) {}
 
   getAll(): Observable<AulaType[]> {
     return this.http.get<AulaType[]>(`${this.basePath}`);
@@ -20,7 +18,7 @@ export class AulaService {
   getBy(id: number): Observable<AulaType> {
     return this.http.get<AulaType>(`${this.basePath}/${id}`);
   }
-  
+
   create(aula: AulaType): Observable<AulaType> {
     return this.http.post<AulaType>(`${this.basePath}/create`, aula);
   }

@@ -4,14 +4,12 @@ import { Observable } from "rxjs"
 import { ProgramacionType } from "./api.types";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ProgramacionService {
-  private basePath = `http://localhost:8080/api/programacion`
+  private basePath = `http://18.217.180.20/api/programacion`;
 
-  constructor(
-    private readonly http: HttpClient,
-  ) {}
+  constructor(private readonly http: HttpClient) {}
 
   getAll(): Observable<ProgramacionType[]> {
     return this.http.get<ProgramacionType[]>(`${this.basePath}`);
@@ -20,13 +18,19 @@ export class ProgramacionService {
   getBy(id: number): Observable<ProgramacionType> {
     return this.http.get<ProgramacionType>(`${this.basePath}/${id}`);
   }
-  
+
   create(programacion: ProgramacionType): Observable<ProgramacionType> {
-    return this.http.post<ProgramacionType>(`${this.basePath}/create`, programacion);
+    return this.http.post<ProgramacionType>(
+      `${this.basePath}/create`,
+      programacion
+    );
   }
 
   update(programacion: ProgramacionType): Observable<ProgramacionType> {
-    return this.http.put<ProgramacionType>(`${this.basePath}/update/${programacion.id}`, programacion);
+    return this.http.put<ProgramacionType>(
+      `${this.basePath}/update/${programacion.id}`,
+      programacion
+    );
   }
 
   delete(id: number): Observable<ProgramacionType> {
